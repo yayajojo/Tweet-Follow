@@ -1,56 +1,17 @@
 <?php
-
 namespace App;
 
-use Illuminate\Support\Facades\Auth;
-
-
-trait Likable
-{
-
-    public function like(Tweet $tweet)
+trait likable{
+    public function likePressed($user)
     {
-       
-        if (!$this->likePressed($tweet, Auth::id())) {
-            $tweet->likes()
-                ->create(
-                    ['user_id' => Auth::id(), 'liked' => true]
-                );
-        }
-        if ($this->likedBy($tweet, Auth::id())) {
-            $tweet->likes()->where(['user_id' => Auth::id()])->update(['liked' => false]);
-        } else {
-            $tweet->likes()->where(['user_id' => Auth::id()])->update(['liked' => true, 'disliked' => false]);
-        }
-
-        return back();
+        return $this->likes()->where(['user_id' => $user])->exists();
     }
-    public function dislike(Tweet $tweet)
+    public function likedBy($user)
     {
-        if (!$this->likePressed($tweet, Auth::id())) {
-            $tweet->likes()
-                ->create(
-                    ['user_id' => Auth::id(), 'disliked' => true]
-                );
-        }
-        if ($this->dislikedBy($tweet, Auth::id())) {
-            $tweet->likes()->where(['user_id' => Auth::id()])->update(['disliked' => false]);
-        } else {
-            $tweet->likes()->where(['user_id' => Auth::id()])->update(['disliked' => true, 'liked' => false]);
-        }
-        return back();
+        return $this->likes()->where(['user_id' => $user, 'liked' => true])->exists();
     }
-    
-    protected function likePressed(Tweet $tweet, $user)
+    public function dislikedBy($user)
     {
-        return $tweet->likes()->where(['user_id' => $user])->exists();
-    }
-    protected function likedBy(Tweet $tweet, $user)
-    {
-        return $tweet->likes()->where(['user_id' => $user, 'liked' => true])->exists();
-    }
-    protected function dislikedBy(Tweet $tweet, $user)
-    {
-        return $tweet->likes()->where(['user_id' => $user, 'disliked' => true])->exists();
+        return $this->likes()->where(['user_id' => $user, 'disliked' => true])->exists();
     }
 }

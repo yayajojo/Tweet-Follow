@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Likable;
+
 use App\Tweet;
+use App\LikeControll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
-    use Likable;
+    use LikeControll;
     
     public function __construct()
     {

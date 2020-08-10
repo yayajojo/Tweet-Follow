@@ -2,7 +2,6 @@
 
 namespace App;
 
-
 trait Followable
 {
     public function toggleFollow(User $user)

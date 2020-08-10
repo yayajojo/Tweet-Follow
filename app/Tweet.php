@@ -4,10 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use App\likable;
 
 class Tweet extends Model
 {
+<<<<<<< HEAD
     
+=======
+    use likable;
+>>>>>>> 8175dad... finish requirements
     protected $fillable = ['user_id','body'];
     public function user()
     {
