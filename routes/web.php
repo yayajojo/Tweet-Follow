@@ -18,8 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+// tweets routes
 Route::get('/tweets', 'TweetController@index')->name('home');
 Route::post('/tweets','TweetController@store');
+
+// profiles routes
+
+Route::get('/profiles/{user}','ProfileController@show')->name('profiles.show');
 
 

@@ -34,18 +34,22 @@
 
         <section class="px-4">
             <main class="py-4">
-
-            <div class="lg:flex lg:justify-between">
-    <div class="lg:w-1/6 px-20">
-        @include('_sidebar-links')
-    </div>
-    <div class="lg:flex-1 lg:mx-10 " style="max-width: 700px;">
-        @yield('content')
-    </div>
-    <div class="lg:w-1/4 bg-green-400 bg-opacity-75 p-5 mx-8 rounded">
-        @include('_friends-list')
-    </div>
-</div>
+               
+                <div class="lg:flex lg:justify-between">
+                    @auth
+                    <div class="lg:w-1/6 px-20">
+                        @include('_sidebar-links')
+                    </div>
+                    @endauth
+                    <div class="lg:flex-1 lg:mx-10 " style="max-width: 700px;">
+                        @yield('content')
+                    </div>
+                    @auth
+                    <div class="lg:w-1/4 bg-green-400 bg-opacity-75 p-5 mx-8 rounded-lg">
+                        @include('_followers-list')
+                    </div>
+                    @endauth
+                </div>
             </main>
         </section>
 
