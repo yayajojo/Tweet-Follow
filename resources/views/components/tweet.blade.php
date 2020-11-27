@@ -1,4 +1,4 @@
-<div class="border border-gray-300 rounded-lg">
+<div class="border border-gray-300 rounded-md">
     <div class="flex p-4">
         <div class="mx-3 my-2 flex-shrink-0">
             <a href="{{route('profiles.show',$tweet->user)}}">
@@ -14,4 +14,5 @@
             </p>
         </div>
     </div>
+    <x-like-dislike-icons :tweet="$tweet" />
 </div>

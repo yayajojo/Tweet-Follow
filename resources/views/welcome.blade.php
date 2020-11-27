@@ -77,7 +77,8 @@
 
             <div class="links">
 
-                    <a href="{{ route('home') }}">Home</a>
+                    <a href="{{ route('login') }}">LogIn</a>
+                    <a href="{{ route('register') }}">Register</a>
                     
                 </div>
                 

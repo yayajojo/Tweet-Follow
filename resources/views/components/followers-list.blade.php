@@ -1,15 +1,20 @@
+<div>
+    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
 <h3 class="font-bold text-xl">Following</h3>
 <ul>
-    @foreach($followeds as $followed)
+    @forelse($followeds as $followed)
     <li class="mb-3">
         <div >
             <a class="flex items-center text-sm" href="{{route('profiles.show',$followed)}}">
-            <img src="https://i.pravatar.cc/50?u={{$followed->email}}" 
+            <img class="w-1/6 rounded-full mr-3 mt-3" src="{{$followed->getAvatar()}}" 
             alt="Avatar" 
             class="rounded-full mr-3 mt-3">
             {{$followed->name}}
             </a>
         </div>
     </li>
-    @endforeach
+    @empty
+    <li class="mb-3">No followees yet</li>
+    @endforelse
 </ul>
+</div>

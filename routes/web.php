@@ -20,10 +20,21 @@ Route::get('/', function () {
 Auth::routes();
 // tweets routes
 Route::get('/tweets', 'TweetController@index')->name('home');
-Route::post('/tweets','TweetController@store');
+Route::post('/tweets', 'TweetController@store');
 
 // profiles routes
+// {user:name} override getRouteKeyName()
+Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profiles.show');
+Route::patch('/profiles/{profile}', 'ProfileController@update')->name('profiles.update');
+Route::get('/profiles/{user:username}/edit', 'ProfileController@edit')->name('profiles.edit');
 
-Route::get('/profiles/{user}','ProfileController@show')->name('profiles.show');
+// follows
+Route::post('/follows/{user:username}', 'FollowController@store')->name('follows.store');
 
+// explore
+Route::get('/explore','ExploreController@index')->name('explore');
 
+// likes
+
+Route::post('/{tweet}/like','TweetController@like')->name('tweets.like');
+Route::post('/{tweet}/dislike','TweetController@dislike')->name('tweets.dislike');
