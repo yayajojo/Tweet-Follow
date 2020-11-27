@@ -27,7 +27,7 @@
             <header class='container mx-auto'>
                 <img src="/images/logo.png" alt="Tweety ">
                 <h1 class="text-left text-lg font-bold">
-                    Tweety
+                    Tweet&Follow
                 </h1>
             </header>
         </section>

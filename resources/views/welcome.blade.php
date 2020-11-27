@@ -72,7 +72,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Tweety
+            Tweet&Follow
             </div>
 
             <div class="links">
