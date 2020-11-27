@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Likable;
 use App\Tweet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
+    use Likable;
+    
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('log');
     }
 
     public function index()
