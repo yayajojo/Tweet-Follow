@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function getAvatar()
     {
-        return 'https://i.pravatar.cc/50?u=' . $this->email;
+        return 'https://i.pravatar.cc/180?u=' . $this->email;
     }
     public function follow(User $user)
     {
@@ -62,5 +62,9 @@ class User extends Authenticatable
     public function follows()
     {
         return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed_user_id')->withTimestamps();
+    }
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }
