@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username','name', 'email', 'password',
     ];
 
     /**
@@ -37,10 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    // tweets
     public function tweets()
     {
-        return $this->hasMany('App\Tweet');
+        return $this->hasMany('App\Tweet')->latest();
     }
 
     public function timeline()
@@ -48,23 +48,17 @@ class User extends Authenticatable
         // include the user's and followeds' tweets
 
         $followed_ids = $this->follows()->pluck('id');
-        return Tweet::whereIn('user_id', $followed_ids)->orWhere('user_id', $this->id)->latest()->get();
+        return Tweet::whereIn('user_id', $followed_ids)->orWhere('user_id', $this->id)->latest()->paginate(5);
+    }
+    // profile
+    public function profile()
+    {
+        return $this->hasOne('App\Profile');
     }
 
+    // path to avatar 
     public function getAvatar()
     {
-        return 'https://i.pravatar.cc/180?u=' . $this->email;
-    }
-    public function follow(User $user)
-    {
-        return $this->follows()->save($user);
-    }
-    public function follows()
-    {
-        return $this->belongsToMany('App\User', 'follows', 'user_id', 'followed_user_id')->withTimestamps();
-    }
-    public function getRouteKeyName()
-    {
-        return 'name';
+        return asset($this->profile->avatar);
     }
 }
