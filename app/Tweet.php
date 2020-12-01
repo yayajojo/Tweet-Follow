@@ -8,11 +8,8 @@ use App\likable;
 
 class Tweet extends Model
 {
-<<<<<<< HEAD
-    
-=======
     use likable;
->>>>>>> 8175dad... finish requirements
+
     protected $fillable = ['user_id','body'];
     public function user()
     {
