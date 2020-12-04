@@ -1,5 +1,7 @@
 module.exports = {
-  purge: [],
+  purge: {content: [
+    './resources/views/**/*.blade.php',
+  ]},
   target: 'relaxed',
   prefix: '',
   important: false,
