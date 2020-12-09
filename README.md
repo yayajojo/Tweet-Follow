@@ -7,8 +7,12 @@
  - 使用Laravel 7.x
  
 ## 網站雲端部署（展示用）
-- 使用Google的APP ENGINE
-- [網址]()
+- 使用Google的APP ENGINE部署
+- 使用Cloud SQL資料庫
+- 使用APP ENGINE提供的Google Cloud Storage存取頭像等個人自介圖片
+- [網址](https://tweety-297611.df.r.appspot.com/)
+  - 已創建測試帳號：test2
+  - 密碼：1qaz1qaz
 
 ## 網站實作分為六個方面
 
