@@ -55,7 +55,7 @@ class ProfileController extends Controller
   }
   if($request->__isset('password')){
     $password = $request->validate(['password' => ['string', 'min:8', 'confirmed']]);
-    $userAttributes['password']= Hash::make($password);
+    $userAttributes['password']= Hash::make($password['password']);
   }
   $profile->user()->update($userAttributes);
   $profile->update($profileAttributes);
