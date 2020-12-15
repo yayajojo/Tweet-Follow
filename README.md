@@ -11,8 +11,8 @@
 - 使用Cloud SQL資料庫
 - 使用APP ENGINE提供的Google Cloud Storage存取頭像等個人自介圖片
 - [網址](https://tweety-297611.df.r.appspot.com/)
-  - 已創建測試帳號：test2
-  - 密碼：1qaz1qaz
+  - 已創建測試帳號：test2@gmail
+  - 密碼：tweet&follow
 
 ## 網站實作分為六個方面
 
