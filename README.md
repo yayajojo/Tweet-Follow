@@ -7,11 +7,13 @@
  - 使用Laravel 7.x
  
 ## 網站雲端部署（展示用）
-- 使用Google的APP ENGINE部署
-- 使用Cloud SQL資料庫
-- 使用APP ENGINE提供的Google Cloud Storage存取頭像等個人自介圖片
-- 展示網站下架，預備移往AWS
- 
+- 部署至AWS的Elastic Beanstalk
+- 資料庫：使用RDS的mysql
+- 使用S3存取頭像等個人自介圖片
+- [展示網站網址](http://tweetyandfollow-env.eba-uexehxmm.us-east-2.elasticbeanstalk.com/)
+    - 已創建帳號1： (1) Email: tweet1@gmail (2) 密碼： tweetandfollow
+    - 已創建帳號2： (1) Email: tweet2@gmail (2) 密碼： tweetandfollow
+     
 ## 網站實作分為六個方面
 
 - **AUTH** 註冊或登入
